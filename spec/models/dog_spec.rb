@@ -19,6 +19,8 @@ RSpec.describe Dog, type: :model do
     end
   end
 
+
+
   describe "POST /create" do
     it "creates a dog" do
       dog_params = {
@@ -46,4 +48,28 @@ RSpec.describe Dog, type: :model do
 
     end
   end
+
+  describe "PATCH /update" do 
+    it "updates a dog" do
+      dog_params = {
+        dog: {
+          name: 'Chonk',
+          age: 1,
+          enjoys: 'Laying on her bed.',
+          image: 'https://dogtime.com/assets/uploads/gallery/korean-jindo-dog-breed-pictures/korean-jindo-dog-breed-pictures-10.jpg'
+        }
+      }
+
+      patch '/dogs', params: dog_params
+
+      expect(response).to have_http_status(200)
+
+      dog = Dog.first
+
+      expect(dog.name).to eq 'Chonk'
+      expect(dog.age).to eq 1
+      expect(dog.enjoys).to eq 'Laying on her bed.'
+    end
+  end
+
 end
