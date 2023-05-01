@@ -1,7 +1,27 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
-#   Character.create(name: "Luke", movie: movies.first)
+dogs = [
+  {
+    name: 'Karter',
+    age: 3,
+    enjoys: 'Laying on a heating pad, and using the bathroom in the house. Ya know, casual stuff.',
+    image: 'https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-08/Yorkie-Poo-Yorkipoo.jpg?itok=EsHlkqjB'
+  },
+  {
+    name: 'Khaleesi',
+    age: 1,
+    enjoys: 'Laying on her bed.',
+    image: 'https://dogtime.com/assets/uploads/gallery/korean-jindo-dog-breed-pictures/korean-jindo-dog-breed-pictures-10.jpg'
+  },
+  {
+    name: 'Bella',
+    age: 5,
+    enjoys: "Eating everyone's food but her own.",
+    image: 'https://encrypted-tbn3.gstatic.com/licensed-image?q=tbn:ANd9GcSsylM0lFatrYrQw2bLLxFvfKdYjn8rtjBGopD9vDUZvmcq29vdgALuY5-b2GX0YYcJCNBKQKgn-VJo0_c'
+  }
+]
+
+dogs.each do |each_dog|
+  Dog.create each_dog
+  puts "creating dog #{each_dog}"
+end
+
+
