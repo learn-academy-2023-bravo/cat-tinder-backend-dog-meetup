@@ -6,7 +6,7 @@ class DogsController < ApplicationController
 
     def create
         dog = Dog.create
-        render json: dogs
+        render json: dog
     end
 
     def update
