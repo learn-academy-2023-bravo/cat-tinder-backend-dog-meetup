@@ -17,5 +17,10 @@ RSpec.describe Dog, type: :model do
     expect(dog.errors[:enjoys]).to_not be_empty
   end
 
+  it "Should validate image exists" do
+    dog = Dog.create(name: 'Buster', age:5, enjoys:'napping')
+    expect(dog.errors[:image]).to_not be_empty
+  end
+
 
 end
