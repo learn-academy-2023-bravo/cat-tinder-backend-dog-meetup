@@ -19,9 +19,9 @@ dogs = [
   }
 ]
 
-dogs.each do |each_dog|
-  Dog.create each_dog
-  puts "creating dog #{each_dog}"
+dogs.each do |dog|
+  Dog.create dog
+  puts "creating dog #{dog}"
 end
 
 
