@@ -5,7 +5,7 @@ class DogsController < ApplicationController
     end
 
     def create
-        dog = Dog.create
+        dog = Dog.create(dog_params)
         render json: dog
     end
 

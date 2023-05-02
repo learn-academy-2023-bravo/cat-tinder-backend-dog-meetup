@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe "Dogs", type: :request do
   describe "GET /index" do
     it "gets a list of dogs" do 
-      Dogs.create(
+      Dog.create(
         name: 'Karter',
         age: 3,
         enjoys: 'Laying on a heating pad, and using the bathroom in the house. Ya know, casual stuff.',
@@ -33,6 +33,7 @@ RSpec.describe "Dogs", type: :request do
       post "/dogs", params: dog_params
       expect(response).to have_http_status(200)
       dog = Dog.first
+      puts dog
       expect(dog.name).to eq 'Karter'
       expect(dog.age).to eq 3
       expect(dog.enjoys).to eq 'Laying on a heating pad, and using the bathroom in the house. Ya know, casual stuff.'
