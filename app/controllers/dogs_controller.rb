@@ -19,7 +19,7 @@ class DogsController < ApplicationController
         if dog.valid?
             render json: dog
         else
-            render json: dog.errors
+            render json: dog.errors, status: 422
         end
     end
 
@@ -28,7 +28,7 @@ class DogsController < ApplicationController
         if dog.destroy
             render json: dog
         else 
-            render json: dog.errors
+            render json: dog.errors, status: 422
         end
     end
 
