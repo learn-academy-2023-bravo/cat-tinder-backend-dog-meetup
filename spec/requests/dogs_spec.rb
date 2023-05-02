@@ -39,6 +39,8 @@ RSpec.describe "Dogs", type: :request do
       expect(dog.image).to eq 'https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-08/Yorkie-Poo-Yorkipoo.jpg?itok=EsHlkqjB'
     end
   end
+
+
 describe "cannot create a dog without valid attributes" do
   it "cannot create a dog without a name" do
     dog_params = {
@@ -78,7 +80,7 @@ describe "cannot create a dog without valid attributes" do
     post '/dogs', params: dog_params
     dog = JSON.parse(response.body)
     expect(response).to have_http_status(422)
-    expect(dog["enjoys"]).to include "can't be blank"
+    expect(dog["enjoys"]).to include "is too short (minimum is 10 characters)"
   end
   it "cannot create a dog without an image" do
     dog_params = {
